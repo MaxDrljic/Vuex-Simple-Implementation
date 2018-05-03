@@ -12,22 +12,25 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex';
+import {mapGetters} from 'vuex';
+
 export default {
   computed: {
     // Accessing the State Products
     products() {
       return this.$store.state.products;
     },
-    // Basic implementation of Getter
-    saleProducts() {
-      return this.$store.getters.saleProducts;
-    }
+    // Basic implementation of Getter & mapGetters
+    ...mapGetters([
+      'saleProducts'
+    ])
   },
   methods: {
-    // Basic implementation of Mutation
-    reducePrice: function (amount) {
-      this.$store.dispatch('reducePrice', amount)
-    }
+    // Basic implementation of Mutation & mapActions
+    ...mapActions([
+      'reducePrice'
+    ])
   }
 }
 </script>
