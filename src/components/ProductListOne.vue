@@ -7,17 +7,26 @@
         <span class="price">${{product.price}}</span>
       </li>
     </ul>
+    <button v-on:click="reducePrice">Reduce Price</button>
   </div>
 </template>
 
 <script>
 export default {
   computed: {
+    // Accessing the State Products
     products() {
       return this.$store.state.products;
     },
+    // Basic implementation of Getter
     saleProducts() {
       return this.$store.getters.saleProducts;
+    }
+  },
+  methods: {
+    // Basic implementation of Mutation
+    reducePrice: function () {
+      this.$store.commit('reducePrice');
     }
   }
 }
