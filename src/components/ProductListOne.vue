@@ -7,7 +7,7 @@
         <span class="price">${{product.price}}</span>
       </li>
     </ul>
-    <button v-on:click="reducePrice">Reduce Price</button>
+    <button v-on:click="reducePrice(4)">Reduce Price</button>
   </div>
 </template>
 
@@ -25,8 +25,8 @@ export default {
   },
   methods: {
     // Basic implementation of Mutation
-    reducePrice: function () {
-      this.$store.commit('reducePrice');
+    reducePrice: function (amount) {
+      this.$store.dispatch('reducePrice', amount)
     }
   }
 }
